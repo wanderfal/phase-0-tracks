@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practice Form</title>
+</head>
+<body>
+	<form name= "Choice of Fruit" action="success.html" method="post">
+		<fieldset>
+			<div>
+				<label>Full Name:</label>
+				<input type="text" name="fullname">
+			</div>
+
+			<div>
+				<label>Age:</label>
+				<input type="number" name="Age">
+			</div>
+			
+			<div>
+				<label>Brand of Shoes</label>
+				<select name="Brand"> 
+					<option value="Nike">Nike</option>
+					<option value="Crocs">Crocs</option>
+					<option value="Keds">Keds</option>
+				</select>
+			</div>
+			<div>
+				<label>Fruits</label>
+				<select name="Fruits">
+					<option value="Oranges">Oranges</option>
+					<option value="Apples">Apples</option>
+					<option value="Avocado">Avocado</option>
+				</select>
+
+			</div>
+			<div>
+				<textarea name="textarea" rows="5" cols="50" placeholder="I like this fruit because..."></textarea>
+
+			</div>
+
+			<div>
+			<input type="checkbox" name="agree" value="agree">
+				I am telling the truth.
+			</div>
+		</fieldset>
+
+		<button type="submit">Submit</button>
+
+	</form>
+</body>
+</html>
