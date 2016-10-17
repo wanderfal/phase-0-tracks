@@ -10,3 +10,5 @@
     - A commit is when we decide that the revisions/changes that have been made in the branches are changes that we want in our final product. A good commit message is short and clear about the changes that have been made.
 * What is a merge conflict?
     - A merge conflict usually occurs when there is an attempt to merge multiple branches that have different files and/or differently modified files. Such as when one branch has deleted a line in a file, while in another branch, that same line edited to something different. This results in a conflict between the two files, and Git does not know which change it should make.
+    
+**CHANGE**
