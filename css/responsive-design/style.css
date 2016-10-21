@@ -1,3 +1,7 @@
+body {
+  max-width: 960px;
+
+}
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -12,6 +16,20 @@ cite {
 #external-links ul {
   list-style-type: none;
   padding-left: 0px;
+}
+
+#external-links {
+  width: 20%;
+  min-width: 175px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+main {
+  width: 79%;
+  display: inline-block;
+  width: 50%;
+  margin: auto;
 }
 
 /* you're welcome to edit the
@@ -29,4 +47,38 @@ figure {
 figcaption {
   font-style: italic;
   text-align: right;
+}
+
+
+@media screen and (max-width: 350px) {
+  blockquote {
+    font-size: .5em;
+  }
+  p {
+    font-size: .8em;
+  }
+  h1 {
+    font-size: .8em;
+  }
+  figcaption {
+    font-size: .8em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  blockquote {
+    min-width: 180px;
+  }
+  p {
+    min-width: 180px;
+  }
+
+}
+
+@media screen and (max-width: 390px) {
+  body {
+    width: 50%
+    margin: auto;
+  }
+
 }
