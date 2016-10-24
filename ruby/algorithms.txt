@@ -1,0 +1,34 @@
+#Release 0
+
+The 'dumb' and slowest way, which garuntees your will get to your floor.
+    - Once you enter the elevator, the robot will:
+        + Press every button.
+        + You will then eventually get to the floor that you want.
+    - Another slightly faster method would require some sort of input from the user to the robot:
+        + You give it your floor number.
+        + The robot checks how many floors there are.
+        + Generally the buttons for each floor in an elevator are placed with the higher floors on top and lower floors at the bottom.
+        + If your floor is closer to the top, the robot can press the top floor, and after reaching the floor if it is wrong, it will go down the list of floors. If your floor was closer to ground level, it would start from the bottom.
+    - Or if the robot knows the layout of the buttons, and knows which button is connected to which floor:
+        + User gives the desired floor.
+        + Robot picks out that floor and the button that is associated with it.
+        + Presses the specific button.
+
+#Release 1
+##Find a Real-life Algorithm
+
+###Laundry
+Some people seperate their whites from darks, and delicates from non-delicates.
+    If I had a robot to sort the laundry that goes into the wash, for the best possible wash:
+    - In my case, I only have two categories where I need seperation.
+        + White and Everything else.
+        + Socks and Everything else.
+    - When it is time to do the laundry, I start going through it looking for White clothing and socks.
+    - These I seperate into another laundry basket.
+    - Everything else is thrown inside the laundry machine.
+    - After there are only either socks or white clothes left, I stop sorting, and let the washing machine do it's job.
+    - While it's washing I could further sort my socks by white and darks.
+    - These are special socks, so I would like to wash them seperate from the regular laundry.
+    - After everything is sorted, I can put in each 'load' seperately, and my clothes will be washed AND sorted.
+    - If I wanted to save on energy costs, I would dump each washed load into the dryer until there are no more loads left for the washing machine.
+    - Only then would I begin the drying cycle.
