@@ -1,6 +1,6 @@
 #Release 0
 
-The 'dumb' and slowest way, which garuntees your will get to your floor.
+The 'dumb' and slowest way, which guarantees your will get to your floor.
     - Once you enter the elevator, the robot will:
         + Press every button.
         + You will then eventually get to the floor that you want.
@@ -18,17 +18,17 @@ The 'dumb' and slowest way, which garuntees your will get to your floor.
 ##Find a Real-life Algorithm
 
 ###Laundry
-Some people seperate their whites from darks, and delicates from non-delicates.
+Some people separate their whites from darks, and delicates from non-delicates.
     If I had a robot to sort the laundry that goes into the wash, for the best possible wash:
-    - In my case, I only have two categories where I need seperation.
+    - In my case, I only have two categories where I need separation.
         + White and Everything else.
         + Socks and Everything else.
     - When it is time to do the laundry, I start going through it looking for White clothing and socks.
-    - These I seperate into another laundry basket.
+    - These I separate into another laundry basket.
     - Everything else is thrown inside the laundry machine.
     - After there are only either socks or white clothes left, I stop sorting, and let the washing machine do it's job.
     - While it's washing I could further sort my socks by white and darks.
-    - These are special socks, so I would like to wash them seperate from the regular laundry.
-    - After everything is sorted, I can put in each 'load' seperately, and my clothes will be washed AND sorted.
+    - These are special socks, so I would like to wash them separate from the regular laundry.
+    - After everything is sorted, I can put in each 'load' separately, and my clothes will be washed AND sorted.
     - If I wanted to save on energy costs, I would dump each washed load into the dryer until there are no more loads left for the washing machine.
     - Only then would I begin the drying cycle.
