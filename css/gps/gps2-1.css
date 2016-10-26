@@ -1,21 +1,33 @@
 body {
 	max-width: 80%;
 	width: 960px;
+/*	max-height: 100%;*/
 	margin: auto;
 
 }
 
 header {
 	display: block;
+/*	width: 80%;
+	margin: auto;*/
 	background-color: blue;
+	padding: 10px;
+	background-image: url(https://assets-cdn.github.com/images/modules/logos_page/Octocat.png);
+	background-position: right top;
+	background-size: contain;
+	background-repeat: no-repeat;
+	color: white;
 }
+
 
 .column-1 {
 	display: inline-block;
-	width: 450px;
+
+	width: 45%;
 	height: 1401px;
 	background-color: yellow;
 	margin: 5px;
+
 	padding: 5px;
 	font-weight: bold;
 	color: red;
@@ -23,7 +35,7 @@ header {
 
 .column-2 {
 	display: inline-block;
-	width: 450px;
+	width: 45%;
 	height: 1401px;
 	background-color: yellow;
 	vertical-align: top;
