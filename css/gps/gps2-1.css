@@ -1,3 +1,38 @@
 body {
-	background-color: gold;
+	max-width: 80%;
+	width: 960px;
+	margin: auto;
+
 }
+
+header {
+	display: block;
+	background-color: blue;
+}
+
+.column-1 {
+	display: inline-block;
+	width: 450px;
+	height: 1401px;
+	background-color: yellow;
+	margin: 5px;
+	padding: 5px;
+	font-weight: bold;
+	color: red;
+}
+
+.column-2 {
+	display: inline-block;
+	width: 450px;
+	height: 1401px;
+	background-color: yellow;
+	vertical-align: top;
+	margin: 5px;
+	padding: 5px;
+}
+
+footer {
+	display: block;
+	background-color: red;
+}
+
