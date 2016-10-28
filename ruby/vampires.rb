@@ -54,15 +54,21 @@ while i < employee
 		vampire_meter += 2
 	end
 
-	if order == "no"
-		"VAMPIRE!"
+	if order == "no" && insurance == "no"
+		vampire_meter += 2
+	elsif order == "no" || insurance == "no"
 		vampire_meter += 1
 	end
 
-	if insurance == "no"
-		"VAMPIRE!"
-		vampire_meter += 1
-	end
+	# if order == "no"
+	# 	"VAMPIRE!"
+	# 	vampire_meter += 1
+	# end
+
+	# if insurance == "no"
+	# 	"VAMPIRE!"
+	# 	vampire_meter += 1
+	# end
 	
 	
 	report = case vampire_meter
@@ -87,4 +93,9 @@ while i < employee
 		puts "Employee #{i} is #{report}"
 	end
 end
+
+if i == employee
+	puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
+end	
+
 
