@@ -17,6 +17,8 @@
 => "STOP! YOU’RE UNDER ARREST!"
 
 "the usual".concat(" suspects")
+#or
+"the usual" << " suspects"
 => "the usual suspects"
 
 " suspects".prepend("the usual")
@@ -40,3 +42,4 @@
 
 "How many times does the letter 'a' appear in this string?".count "a"
 => 4
+
