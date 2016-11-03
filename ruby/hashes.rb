@@ -23,9 +23,9 @@ puts "What kind of a Decor Theme would you like?"
 a = "Modern"
 b = "Victorian"
 c = "Secret Lair"
-puts "Choice A, a modern theme."
-puts "Choice B, a victorian theme."
-puts "or would you like choice C, a secret lair theme?"
+puts "A, a modern theme."
+puts "B, a victorian theme."
+puts "or would you like C, a secret lair theme?"
 design[:theme] = gets.chomp.downcase
 
 
@@ -36,9 +36,12 @@ design[:theme] = gets.chomp.downcase
 # 					name: name,
 # 					age: age.to_i,
 # 					children: children.to_i,
-# 					decor: theme,
-# 					color: color,
+# 					decor: {a: "Modern",
+# 							b: "Victorian"
+# 							c: "Secret Lair"},
+#					color: color,
 # 					material: material,
+# 					child_proof: "Yes/No",
 # }
 
 p interior_design
