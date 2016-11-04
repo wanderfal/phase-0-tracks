@@ -4,7 +4,6 @@
 	and a few other questions that have some relation to interior design.
 	We then show them their choices and ask them if they want to make any changes.
 	Finally we display their final choices.
-	
 =end
 
 
@@ -19,34 +18,58 @@ design[:age] = gets.chomp.to_i
 puts "How many children will be living here?"
 design[:children] = gets.chomp.to_i
 
-puts "What kind of a Decor Theme would you like?"
-a = "Modern"
-b = "Victorian"
-c = "Secret Lair"
-puts "A, a modern theme."
-puts "B, a victorian theme."
-puts "or would you like C, a secret lair theme?"
-design[:theme] = gets.chomp.downcase
+puts "What kind of a Decor Theme would you like? A, B, or C?"
+# a = "Modern"
+# b = "Victorian"
+# c = "Secret Lair"
+decor = {
+					a: "Modern",
+					b: "Victorian",
+					c: "Secret Lair",
+}
+# a = "Modern"
+# b = "Victorian"
+# c = "Secret Lair"
+letter = gets.chomp.downcase.to_sym
+design[:decor] = {letter => decor[letter] } 
+
+puts "What is your favorite color?"
+design[:color] = gets.chomp
+
+puts "What type of material would you like?"
+design[:material] = gets.chomp
+
+puts "Would you like to child-proof your furniture?Yes/No"
+design[:child_proof] = gets.chomp.downcase
 
 
 
 
 
-# interior_design = {
+# design = {
 # 					name: name,
 # 					age: age.to_i,
 # 					children: children.to_i,
 # 					decor: {a: "Modern",
-# 							b: "Victorian"
-# 							c: "Secret Lair"},
-#					color: color,
+# 									b: "Victorian",
+# 									c: "Secret Lair",
+#										},
+#						color: color,
 # 					material: material,
 # 					child_proof: "Yes/No",
 # }
 
-p interior_design
+p design
 
-name = "Kane Lee"
-color = "Black"
 
-p interior_design
+puts "Is this correct?Yes/No"
+correct = gets.chomp.downcase
+
+if correct == "yes"
+	puts "Thank you for your input."
+elsif correct == "no"
+	category = gets.chomp
+	case category
+	when condition
+		
+	end
