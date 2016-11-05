@@ -28,9 +28,9 @@ decor = {
 
 letter = gets.chomp.downcase.to_sym
 design[:decor] = {letter => decor[letter] } 
-p letter
-p decor
-p decor[letter]
+# p letter
+# p decor
+# p decor[letter]
 
 puts "What is your favorite color?"
 design[:color] = gets.chomp
