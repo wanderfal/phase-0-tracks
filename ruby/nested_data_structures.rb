@@ -1,48 +1,47 @@
 dept_store = {
-							first_floor: {
-															electronics: [
-																						"Televisions",
-																						"Washing Machines",
-																						"Dryers",
-																						"Ranges",
-																						"Microwaves"
-															],
-															hardware: [
-																					"Lawnmowers",
-																					"Power Tools",
-																					"Outdoor Lighting",
-															],
-															cust_serv: "Pick-up Area",
-							},
-							second_floor: {
-															children: {
-																					boys: [
-																									"shoes",
-																									"shirts",
-																									"pants"
-																					],
-																					girls: [
-																									"shoes",
-																									"shirts",
-																									"pants",
-																									"dresses"
-																					]
-															},
-															mens: [
-																			"shoes",
-																			"shirts",
-																			"pants"
-															]
-
-							},
-							third_floor: {
-															womens: [
-																				"shoes",
-																				"shirts",
-																				"pants",
-																				"dresses"
-															]
-							}
+		first_floor: {
+				electronics: [
+						"Televisions",
+						"Washing Machines",
+						"Dryers",
+						"Ranges",
+						"Microwaves"
+				],
+				hardware: [
+						"Lawnmowers",
+						"Power Tools",
+						"Outdoor Lighting",
+				],
+				cust_serv: "Pick-up Area",
+		},
+		second_floor: {
+				children: {
+						boys: [
+								"shoes",
+								"shirts",
+								"pants"
+						],
+						girls: [
+								"shoes",
+								"shirts",
+								"pants",
+								"dresses"
+						]
+				},
+				mens: [
+						"shoes",
+						"shirts",
+						"pants"
+						]
+				},
+		third_floor: {
+				womens: [
+						"shoes",
+						"shirts",
+						"pants",
+						"dresses"
+						]
+		}
 }
 
 
