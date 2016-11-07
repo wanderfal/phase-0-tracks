@@ -65,7 +65,9 @@ end
 
 # p encrypt("Kane Lee")
 
-# Release 1
+
+# Release 1 & 2
+
 def cap_first(str)
 	str.split(' ').map!{ |word| word.capitalize }.join(' ')
 end
@@ -93,3 +95,4 @@ else
 	end
 end
 
+# p fake_names
