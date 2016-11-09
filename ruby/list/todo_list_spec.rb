@@ -1,15 +1,19 @@
 class TodoList
   def initialize(arr)
-    @list = arr
+    @variable = arr
   end
   def get_items
-    @list
+    @variable
   end
   def add_item(chore)
+    @variable << chore
   end
   def delete_item(chore)
+    i = @variable.index(chore)
+    @variable.delete_at(i)
   end
-  def get_item(chore)
+  def get_item(index)
+    @variable[index]
   end
 end
 
