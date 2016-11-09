@@ -1,3 +1,18 @@
+class TodoList
+  def initialize(arr)
+    @list = arr
+  end
+  def get_items
+    @list
+  end
+  def add_item(chore)
+  end
+  def delete_item(chore)
+  end
+  def get_item(chore)
+  end
+end
+
 describe TodoList do
   let(:list) { TodoList.new(["do the dishes", "mow the lawn"]) }
 
