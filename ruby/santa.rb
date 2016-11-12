@@ -1,6 +1,29 @@
 class Santa
+	attr_reader :age, :ethnicity
+	attr_accessor :gender, :reindeer_ranking
+# Getter
+	# def age
+	# 	@age
+	# end
 
-	
+	# def ethnicity
+	# 	@ethnicity
+	# end
+
+	# def reindeer_ranking
+	# 	@reindeer_ranking
+	# end
+
+	# def gender
+	# 	@gender
+	# end
+
+# Setter
+
+
+	# def gender=(new_gender)
+	# 	@gender = new_gender
+	# end
 
 	def initialize(gender, ethnicity)
 		puts "Initializing Santa instance..."
@@ -34,26 +57,6 @@ class Santa
 
 	def get_mad_at(r_name)
 		@reindeer_ranking << @reindeer_ranking.delete(r_name)
-	end
-
-	def gender=(new_gender)
-		@gender = new_gender
-	end
-
-	def age
-		@age
-	end
-
-	def ethnicity
-		@ethnicity
-	end
-
-	def reindeer_ranking
-		@reindeer_ranking
-	end
-
-	def gender
-		@gender
 	end
 end
 
