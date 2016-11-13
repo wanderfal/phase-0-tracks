@@ -20,7 +20,6 @@ class Santa
 
 # Setter
 
-
 	# def gender=(new_gender)
 	# 	@gender = new_gender
 	# end
@@ -40,7 +39,8 @@ class Santa
 			'Donner',
 			'Blitzen'
 		]
-		@age = 0
+# rand(range)
+		@age = rand(0..140)
 	end
 
 	def speak
@@ -60,6 +60,7 @@ class Santa
 	end
 end
 
+# TESTING ----------------------------------------------------
 
 # santa1 = Santa.new('one', 'two')
 
@@ -67,24 +68,53 @@ end
 
 # p santa1.eat_milk_and_cookies('chocolate chip')
 
-santas = []
+# santas = []
 
-genders = ['male', 'female', 'other']
+# genders = ['male', 'female', 'other']
 # p genders.sample
-ethnicities = ['white', 'black', 'orange', 'yellow', 'pink', 'green']
+# ethnicities = ['white', 'black', 'orange', 'yellow', 'pink', 'green']
 
 
 # ethnicities.each do |ethnicity|
 # 	santas << Santa.new(genders.sample, ethnicity)
 # end
 # Sample may not be the best method when testing...
-p santa2 = Santa.new(genders.sample, ethnicities.sample)
-puts "This Santa was #{santa2.age} years old, but today is their birthday. So now this Santa is #{santa2.celebrate_birthday} years old!"
-puts "This Santa was a #{santa2.gender}."
-santa2.gender = 'supergender?'
-puts "After an accident, this Santa became a #{santa2.gender}!"
-p santa2.reindeer_ranking
-santa2.get_mad_at('Dancer')
-puts "Dancer cut in line, so they were sent to the back."
-p santa2.reindeer_ranking
-puts "This Santa is of #{santa2.ethnicity} ethnicity!"
+# p santa2 = Santa.new(genders.sample, ethnicities.sample)
+# puts "This Santa was #{santa2.age} years old, but today is their birthday. So now this Santa is #{santa2.celebrate_birthday} years old!"
+# puts "This Santa was a #{santa2.gender}."
+# santa2.gender = 'supergender?'
+# puts "After an accident, this Santa became a #{santa2.gender}!"
+# p santa2.reindeer_ranking
+# santa2.get_mad_at('Dancer')
+# puts "Dancer cut in line, so they were sent to the back."
+# p santa2.reindeer_ranking
+# puts "This Santa is of #{santa2.ethnicity} ethnicity!"
+
+# TESTING -----------------------------------------------------
+
+# Release 4
+
+
+genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+
+ethnicities = ['white', 'black', 'orange', 'yellow', 'pink', 'green']
+
+# I need 10 Santas
+
+10.times do |i|
+	puts "Santa # #{i+1}!"
+	santa = Santa.new(genders.sample, ethnicities.sample)
+	puts "This Santa is #{santa.gender}!"
+	puts "This Santa is of #{santa.ethnicity} ethnicity!"
+	puts "This Santa is #{santa.age} years old!"
+end
+
+# What about 1000?
+
+# 1000.times do |i|
+# 	puts "Santa # #{i+1}!"
+# 	santa = Santa.new(genders.sample, ethnicities.sample)
+# 	puts "This Santa is #{santa.gender}!"
+# 	puts "This Santa is of #{santa.ethnicity} ethnicity!"
+# 	puts "This Santa is #{santa.age} years old!"
+# end
