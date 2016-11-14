@@ -24,8 +24,7 @@
 
 class Word_guess
 	attr_reader :phrase
-	attr_accessor :guess, :words, :letter_count, :guess_count,
-								:placeholders, :display, :arr, :solved
+	attr_accessor :guess, :words, :letter_count, :guess_count, :placeholders, :display, :arr, :solved
 
 	def initialize(phrase)
 	# When I call a new instance of the game I should provide an argument
@@ -67,35 +66,40 @@ class Word_guess
 				next 
 			end
 		end
-		if !placeholders.include?('_')
-			@solved = true
-		end
 		p placeholders.join(' ')
-		# p placeholders
 	end
 
 	def guess_attempt (guess)
 		@guess = guess
-		if guess_count == letter_count
-			@solved == false
-		elsif arr.include?(guess)
-		# elsif placeholders.include?(guess)
-			puts "You already tried this letter!"
-			p placeholders.join(' ')
+		if !placeholders.include?('_')
+			@solved = true
 		elsif guess == phrase
 			@guess_count += 1
 			@solved = true
+		elsif arr.include?(guess)
+			puts "You already tried this letter!"
+			p placeholders.join(' ')
 		elsif guess.length == 1
 			@guess_count += 1
 			@arr << guess
 			letter_compare(guess)
+		else
+			@guess_count += 1
+			@arr << guess
+			p "Nope! Maybe try a single letter?"
+			p placeholders.join(' ')
 		end
 	end
 
-	# def game_end
+	def game_end
+		case @solved
+		when false
+			p "Hah. You lose. Is that it?"
+		when true
+			p "You did it! You win!"
+		end
+	end
 
-	# end
-	
 end
 
 
@@ -106,11 +110,13 @@ end
 # game = Word_guess.new(gets.chomp.upcase)
 # p game.hide_words
 
-# while game.solved == false
+# until game.guess_count == game.letter_count
 # 	p "You have #{game.letter_count-game.guess_count} guesses!"
 # 	p "Player 2! GUESS THE WORD/S OR LETTER!"
 # 	game.guess_attempt(gets.chomp.upcase)
 # end
+
+# game.game_end
 
 # case game.solved
 # 	when false
@@ -121,7 +127,8 @@ end
 
 
 
-# The case statement with the win/lost feedback should be 
-# incorporated into the class
-# Most likely through a new method that I would call at the
-# end of the driver code. So loop ends, run that method.
+# One function that I could have included is when the phrase has 
+# multiple words.
+# Valid input could be a single correct word, which would update
+# the feedback appropriately. Instead it only takes single letters
+# and the complete phrase. 
