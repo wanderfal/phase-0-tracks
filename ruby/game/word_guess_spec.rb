@@ -27,6 +27,18 @@ describe Word_guess do
 		expect(@game.guess_count).to eq 2
 	end
 
+	it "does not increase the guess count for repeated guesses" do
+		@game.hide_words
+		@game.guess_attempt('H')
+		expect(@game.guess_count).to eq 1
+		@game.guess_attempt('H')
+		expect(@game.guess_count).to eq 1
+		@game.guess_attempt('Z')
+		expect(@game.guess_count).to eq 2
+		@game.guess_attempt('Z')
+		expect(@game.guess_count).to eq 2
+	end
+
 	it "ends when user enters correct phrase" do
 		@game.hide_words
 		expect(@game.guess_attempt('HELLO WORLD')).to eq true
