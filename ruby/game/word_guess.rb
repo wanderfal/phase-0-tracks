@@ -33,19 +33,35 @@ class Word_guess
 	# Which is the word or phrase that Player 1 chooses
 		@phrase = gets.chomp.upcase
 		@letter_count = phrase.delete(' ').length
+		# @display = []
+	end
+	
+	# If there are multiple words I should display them so that each word
+	# will be displayed on a new line
+	def hide_words
+		@words = phrase.split(' ')
+		words.each do |word|
+			@display = []
+			word_length = word.length
+			word_length.times do |i|
+				@display << "_"
+			end
+			p @display.join(" ")
+		end
 	end
 
-	def hide_word
-		@words = phrase.split(' ')
-		@display = []
-		letter_count.times do |i|
-			@display << "_"
-		end
-		@display.join(" ")
-	end
+
+	# def hide_phrase
+	# 	@words = phrase.split(' ')
+	# 	words.each do |word|
+	# 		word.hide_word
+	# 	end
+
+	# end
 
 	def guess_attempt(str)
-
+		@guess = str
+		
 	end
 
 	
@@ -60,5 +76,5 @@ p "Player 1! GIVE ME A WORD OR A PHRASE CONTAINING ONLY LETTERS!"
 game = Word_guess.new
 
 p "You have #{game.letter_count} guesses!"
-p "GUESS THE WORD!"
-p game.hide_word
+p "GUESS THE WORD/S!"
+game.hide_words
