@@ -2,9 +2,11 @@ require_relative 'word_guess'
 
 ###### RSPEC TESTS
 
+# I should have written each test before writing each function of my class
+
 describe Word_guess do
 	before (:each) do
-		@game = Word_guess.new("Hello World")
+		@game = Word_guess.new("HELLO WORLD")
 	end
 #	let(:game) {Word_guess.new("Hello World")}
 
@@ -13,8 +15,23 @@ describe Word_guess do
 	end
 
 	it "returns feedback for every letter" do
-
-		expect(@game.letter_compare('l')).to eq "_ _ L L _   _ _ _ L _"
+		@game.hide_words
+		expect(@game.guess_attempt('L')).to eq "_ _ L L _   _ _ _ L _"
 	end
+
+	it "increases the guess count for each guess" do
+		@game.hide_words
+		@game.guess_attempt('H')
+		expect(@game.guess_count).to eq 1
+		@game.guess_attempt('Z')
+		expect(@game.guess_count).to eq 2
+	end
+
+	it "ends when user enters correct phrase" do
+		@game.hide_words
+		expect(@game.guess_attempt('HELLO WORLD')).to eq true
+	end
+
 end
+
 

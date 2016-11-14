@@ -25,7 +25,7 @@
 class Word_guess
 	attr_reader :phrase
 	attr_accessor :guess, :words, :letter_count, :guess_count,
-								:placeholders, :display, :output, :solved
+								:placeholders, :display, :arr, :solved
 
 	def initialize(phrase)
 	# When I call a new instance of the game I should provide an argument
@@ -36,6 +36,7 @@ class Word_guess
 		@letter_count = phrase.delete(' ').length
 		@placeholders = []
 		@guess_count = 0
+		#@arr = []
 	end
 	
 
@@ -75,13 +76,15 @@ class Word_guess
 
 	def guess_attempt (guess)
 		@guess = guess
+		# if arr.include?(guess)
 		if placeholders.include?(guess)
 			puts "You already tried this letter!"
 			p placeholders.join(' ')
-			@guess_count -= 1
 		elsif guess == phrase
+			@guess_count += 1
 			@solved = true
 		elsif guess.length == 1
+			@guess_count += 1
 			letter_compare(guess)
 		end
 	end
@@ -100,7 +103,6 @@ end
 # 	p "You have #{game.letter_count-game.guess_count} guesses!"
 # 	p "Player 2! GUESS THE WORD/S OR LETTER!"
 # 	game.guess_attempt(gets.chomp.upcase)
-# 	game.guess_count += 1
 # 	if game.guess_count == game.letter_count
 # 		@solved == false
 # 		break
@@ -113,3 +115,10 @@ end
 # 	when true
 # 		puts "You did it! You win!"
 # end
+
+
+
+# Repeated guesses only works if the first guess was correct
+# The solution is probably an array where you push all
+# guesses into, then instead of using .include? on @placeholder
+# I would use it on the array of guesses
