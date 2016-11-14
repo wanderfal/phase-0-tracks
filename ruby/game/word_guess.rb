@@ -28,12 +28,14 @@ class Word_guess
 	attr_reader :phrase
 	attr_accessor :guess, :words, :letter_count, :display
 	
-	def initialize
+	def initialize(phrase)
 	# When I call a new instance of the game I should provide an argument
 	# Which is the word or phrase that Player 1 chooses
-		@phrase = gets.chomp.upcase
+		# @phrase = gets.chomp.upcase
+		# @letter_count = phrase.delete(' ').length
+		@phrase = phrase
 		@letter_count = phrase.delete(' ').length
-		# @display = []
+		@display = []
 	end
 	
 	# If there are multiple words I should display them so that each word
@@ -41,27 +43,30 @@ class Word_guess
 	def hide_words
 		@words = phrase.split(' ')
 		words.each do |word|
-			@display = []
-			word_length = word.length
-			word_length.times do |i|
+			word.each_char do |char|
 				@display << "_"
 			end
-			p @display.join(" ")
+			@display << " "
 		end
+		p @display = display.join(' ').strip!
+	end
+
+	# Compare user's single character guess to the letters in the phrase
+	# replacing them and updating the display.
+	def letters_compare
+		letters = phrase.squeeze(' ')
+		placeholders = display.squeeze(' ')
+
 	end
 
 
-	# def hide_phrase
-	# 	@words = phrase.split(' ')
-	# 	words.each do |word|
-	# 		word.hide_word
-	# 	end
-
-	# end
-
-	def guess_attempt(str)
-		@guess = str
-		
+	def guess_attempt
+		@guess = gets.chomp.upcase
+		if guess.length == 1
+			p 'hello'
+		else
+			p 'no'
+		end
 	end
 
 	
@@ -73,8 +78,9 @@ end
 
 p "GAME START"
 p "Player 1! GIVE ME A WORD OR A PHRASE CONTAINING ONLY LETTERS!"
-game = Word_guess.new
+game = Word_guess.new(gets.chomp.upcase)
 
 p "You have #{game.letter_count} guesses!"
 p "GUESS THE WORD/S!"
 game.hide_words
+guess = game.guess_attempt
