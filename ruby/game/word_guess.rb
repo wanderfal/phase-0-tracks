@@ -26,8 +26,10 @@
 
 class Word_guess
 	attr_reader :phrase
-	attr_accessor :guess, :words, :letter_count, :display
+	attr_accessor :guess, :words, :letter_count, :placeholders, :display, :output
 	
+	include Enumerable
+
 	def initialize(phrase)
 	# When I call a new instance of the game I should provide an argument
 	# Which is the word or phrase that Player 1 chooses
@@ -36,38 +38,47 @@ class Word_guess
 		@phrase = phrase
 		@letter_count = phrase.delete(' ').length
 		@display = []
+		@placeholders = []
 	end
 	
-	# If there are multiple words I should display them so that each word
-	# will be displayed on a new line
+
 	def hide_words
 		@words = phrase.split(' ')
 		words.each do |word|
-			word.each_char do |char|
+			word.each_char do |x|
 				@display << "_"
+				@placeholders << "_"
 			end
 			@display << " "
+			@placeholders << " "
 		end
+		@placeholders.pop
 		p @display = display.join(' ').strip!
 	end
 
 	# Compare user's single character guess to the letters in the phrase
 	# replacing them and updating the display.
-	def letters_compare
-		letters = phrase.squeeze(' ')
-		placeholders = display.squeeze(' ')
-
+	def letter_compare(guess)
+		letters = phrase.split('')
+		letters.each_with_index do |letter, i|
+			if letter == guess
+				@placeholders[i] = letter
+			else
+				next 
+			end
+		end
+		p placeholders.join(' ')
 	end
-
 
 	def guess_attempt
 		@guess = gets.chomp.upcase
 		if guess.length == 1
-			p 'hello'
+			letter_compare(guess)
 		else
 			p 'no'
 		end
 	end
+
 
 	
 
@@ -84,3 +95,4 @@ p "You have #{game.letter_count} guesses!"
 p "GUESS THE WORD/S!"
 game.hide_words
 guess = game.guess_attempt
+
