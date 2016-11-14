@@ -36,7 +36,7 @@ class Word_guess
 		@letter_count = phrase.delete(' ').length
 		@placeholders = []
 		@guess_count = 0
-		#@arr = []
+		@arr = []
 	end
 	
 
@@ -76,8 +76,10 @@ class Word_guess
 
 	def guess_attempt (guess)
 		@guess = guess
-		# if arr.include?(guess)
-		if placeholders.include?(guess)
+		if guess_count == letter_count
+			@solved == false
+		elsif arr.include?(guess)
+		# elsif placeholders.include?(guess)
 			puts "You already tried this letter!"
 			p placeholders.join(' ')
 		elsif guess == phrase
@@ -85,10 +87,15 @@ class Word_guess
 			@solved = true
 		elsif guess.length == 1
 			@guess_count += 1
+			@arr << guess
 			letter_compare(guess)
 		end
 	end
 
+	# def game_end
+
+	# end
+	
 end
 
 
@@ -103,10 +110,6 @@ end
 # 	p "You have #{game.letter_count-game.guess_count} guesses!"
 # 	p "Player 2! GUESS THE WORD/S OR LETTER!"
 # 	game.guess_attempt(gets.chomp.upcase)
-# 	if game.guess_count == game.letter_count
-# 		@solved == false
-# 		break
-# 	end
 # end
 
 # case game.solved
@@ -118,7 +121,7 @@ end
 
 
 
-# Repeated guesses only works if the first guess was correct
-# The solution is probably an array where you push all
-# guesses into, then instead of using .include? on @placeholder
-# I would use it on the array of guesses
+# The case statement with the win/lost feedback should be 
+# incorporated into the class
+# Most likely through a new method that I would call at the
+# end of the driver code. So loop ends, run that method.
