@@ -91,25 +91,25 @@ end
 
 # DRIVER CODE
 
-p "GAME START"
-p "Player 1! GIVE ME A WORD OR A PHRASE CONTAINING ONLY LETTERS!"
-game = Word_guess.new(gets.chomp.upcase)
-p game.hide_words
+# p "GAME START"
+# p "Player 1! GIVE ME A WORD OR A PHRASE CONTAINING ONLY LETTERS!"
+# game = Word_guess.new(gets.chomp.upcase)
+# p game.hide_words
 
-while game.solved == false
-	p "You have #{game.letter_count-game.guess_count} guesses!"
-	p "Player 2! GUESS THE WORD/S OR LETTER!"
-	game.guess_attempt(gets.chomp.upcase)
-	game.guess_count += 1
-	if game.guess_count == game.letter_count
-		@solved == false
-		break
-	end
-end
+# while game.solved == false
+# 	p "You have #{game.letter_count-game.guess_count} guesses!"
+# 	p "Player 2! GUESS THE WORD/S OR LETTER!"
+# 	game.guess_attempt(gets.chomp.upcase)
+# 	game.guess_count += 1
+# 	if game.guess_count == game.letter_count
+# 		@solved == false
+# 		break
+# 	end
+# end
 
-case game.solved
-	when false
-		puts "Hah. You lose. Is that it?"
-	when true
-		puts "You did it! You win!"
-end
+# case game.solved
+# 	when false
+# 		puts "Hah. You lose. Is that it?"
+# 	when true
+# 		puts "You did it! You win!"
+# end
