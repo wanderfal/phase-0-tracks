@@ -20,9 +20,7 @@
 # will get a congratulatory message.
 
 
-
 # CLASS
-
 
 class Word_guess
 	attr_reader :phrase
@@ -83,10 +81,10 @@ class Word_guess
 			puts "You already tried this letter!"
 			p placeholders.join(' ')
 			@guess_count -= 1
-		elsif guess.length == 1
-			letter_compare(guess)
 		elsif guess == phrase
 			@solved = true
+		elsif guess.length == 1
+			letter_compare(guess)
 		end
 	end
 
@@ -105,12 +103,15 @@ while game.solved == false
 	p "Player 2! GUESS THE WORD/S OR LETTER!"
 	game.guess_attempt
 	game.guess_count += 1
-	break if game.guess_count == game.letter_count
+	if game.guess_count == game.letter_count
+		@solved == false
+		break
+	end
 end
 
 case game.solved
-when game.solved == false
-	puts "Hah. You lose. Is that it?"
-when game.solved == true
-	puts "You did it! You win!"
+	when false
+		puts "Hah. You lose. Is that it?"
+	when true
+		puts "You did it! You win!"
 end
