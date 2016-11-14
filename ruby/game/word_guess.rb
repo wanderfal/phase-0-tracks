@@ -26,7 +26,8 @@
 
 class Word_guess
 	attr_reader :phrase
-	attr_accessor :guess, :words, :letter_count, :placeholders, :display, :output
+	attr_accessor :guess, :words, :letter_count, :guess_count,
+								:placeholders, :display, :output, :solved
 	
 	include Enumerable
 
@@ -37,12 +38,14 @@ class Word_guess
 		# @letter_count = phrase.delete(' ').length
 		@phrase = phrase
 		@letter_count = phrase.delete(' ').length
-		@display = []
 		@placeholders = []
+		@guess_count = 0
 	end
 	
 
 	def hide_words
+		@display = []
+		@solved = false
 		@words = phrase.split(' ')
 		words.each do |word|
 			word.each_char do |x|
@@ -53,7 +56,7 @@ class Word_guess
 			@placeholders << " "
 		end
 		@placeholders.pop
-		p @display = display.join(' ').strip!
+		@display = display.join(' ').strip!
 	end
 
 	# Compare user's single character guess to the letters in the phrase
@@ -67,20 +70,25 @@ class Word_guess
 				next 
 			end
 		end
+		if !placeholders.include?('_')
+			@solved = true
+		end
 		p placeholders.join(' ')
+		# p placeholders
 	end
 
 	def guess_attempt
 		@guess = gets.chomp.upcase
-		if guess.length == 1
+		if placeholders.include?(guess)
+			puts "You already tried this letter!"
+			p placeholders.join(' ')
+			@guess_count -= 1
+		elsif guess.length == 1
 			letter_compare(guess)
-		else
-			p 'no'
+		elsif guess == phrase
+			@solved = true
 		end
 	end
-
-
-	
 
 end
 
@@ -90,9 +98,19 @@ end
 p "GAME START"
 p "Player 1! GIVE ME A WORD OR A PHRASE CONTAINING ONLY LETTERS!"
 game = Word_guess.new(gets.chomp.upcase)
+p game.hide_words
 
-p "You have #{game.letter_count} guesses!"
-p "GUESS THE WORD/S!"
-game.hide_words
-guess = game.guess_attempt
+while game.solved == false
+	p "You have #{game.letter_count-game.guess_count} guesses!"
+	p "Player 2! GUESS THE WORD/S OR LETTER!"
+	game.guess_attempt
+	game.guess_count += 1
+	break if game.guess_count == game.letter_count
+end
 
+case game.solved
+when game.solved == false
+	puts "Hah. You lose. Is that it?"
+when game.solved == true
+	puts "You did it! You win!"
+end
