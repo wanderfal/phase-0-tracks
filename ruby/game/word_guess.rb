@@ -26,8 +26,6 @@ class Word_guess
 	attr_reader :phrase
 	attr_accessor :guess, :words, :letter_count, :guess_count,
 								:placeholders, :display, :output, :solved
-	
-	include Enumerable
 
 	def initialize(phrase)
 	# When I call a new instance of the game I should provide an argument
@@ -75,8 +73,8 @@ class Word_guess
 		# p placeholders
 	end
 
-	def guess_attempt
-		@guess = gets.chomp.upcase
+	def guess_attempt (guess)
+		@guess = guess
 		if placeholders.include?(guess)
 			puts "You already tried this letter!"
 			p placeholders.join(' ')
@@ -101,7 +99,7 @@ p game.hide_words
 while game.solved == false
 	p "You have #{game.letter_count-game.guess_count} guesses!"
 	p "Player 2! GUESS THE WORD/S OR LETTER!"
-	game.guess_attempt
+	game.guess_attempt(gets.chomp.upcase)
 	game.guess_count += 1
 	if game.guess_count == game.letter_count
 		@solved == false
