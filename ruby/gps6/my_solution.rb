@@ -104,3 +104,41 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown
+# in the state_data file?
+
+# - One allows any type of data to become the key, while the other syntax
+#   with ':' will make all keys into symbols.
+
+
+# What does 'require_relative' do? How is it different from 'require'?
+
+# - They both 'load' files into the local file. One requires an absolute
+#   path and the other 'require_relative' lets you require files with
+#   a relative path.
+
+
+# What are some ways to iterate through a hash?
+
+# - #each with the key and value parameters
+# - #each_key/value goes through each key/value 
+
+
+# When refactoring 'virus_effects', what stood out to you about the
+# variables, if anything?
+
+# - Since they are instance variables, there is no reason to call them
+#   multiple times throughout each method.
+
+# What concept did you most solidify in this challenge?
+
+# - I think I was able to further refine how I go through refactoring.
+#   I generally try to start reading the code from top to bottom and
+#   start deciding how to refactor it line  by line.
+#   But that is highly inefficient, and I should be looking at the entire
+#   method and look for the easiest things to refactor.
+#   Such as when I was trying to refactor the two methods, I tried to
+#   refactor the most difficult and complicated functions first, instead
+#   of looking for the simplest things I could refactor. Like the 'puts'
+#   statements. And the instance variables.
