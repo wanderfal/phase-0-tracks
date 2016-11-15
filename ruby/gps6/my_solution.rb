@@ -1,11 +1,12 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself].
+# We spent [1] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# when you require a file you will need the absolute path
+# while require_relative, you will only need the relative path to the file
+
 require_relative 'state_data'
 
 class VirusPredictor
@@ -23,6 +24,12 @@ class VirusPredictor
     speed_of_spread
     print "#{@state} will lose #{predicted_deaths} people in this outbreak and will spread across the state in #{speed_of_spread} months.\n\n"
   end
+
+  
+# There are public, private and protected methods
+# Public methods can be used outside of the class
+# while private and protected methods can only be used within the class
+# Evertyhing below the private declaration will become a private method
 
   private
 
