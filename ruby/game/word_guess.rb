@@ -24,7 +24,7 @@
 
 class Word_guess
 	attr_reader :phrase
-	attr_accessor :guess, :words, :letter_count, :guess_count, :placeholders, :display, :arr, :solved
+	attr_accessor :guess, :words, :letter_count, :guess_count, :placeholders, :arr, :solved
 
 	def initialize(phrase)
 	# When I call a new instance of the game I should provide an argument
@@ -40,19 +40,16 @@ class Word_guess
 	
 
 	def hide_words
-		@display = []
 		@solved = false
 		@words = phrase.split(' ')
 		words.each do |word|
 			word.each_char do |x|
-				@display << "_"
 				@placeholders << "_"
 			end
-			@display << " "
 			@placeholders << " "
 		end
 		@placeholders.pop
-		@display = display.join(' ').strip!
+		@placeholders.join(' ')
 	end
 
 	# Compare user's single character guess to the letters in the phrase
@@ -71,9 +68,7 @@ class Word_guess
 
 	def guess_attempt (guess)
 		@guess = guess
-		if !placeholders.include?('_')
-			@solved = true
-		elsif guess == phrase
+		if guess == phrase
 			@guess_count += 1
 			@solved = true
 		elsif arr.include?(guess)
@@ -88,6 +83,9 @@ class Word_guess
 			@arr << guess
 			p "Nope! Maybe try a single letter?"
 			p placeholders.join(' ')
+		end
+		unless placeholders.include?('_')
+			@solved = true
 		end
 	end
 
@@ -105,18 +103,18 @@ end
 
 # DRIVER CODE
 
-# p "GAME START"
-# p "Player 1! GIVE ME A WORD OR A PHRASE CONTAINING ONLY LETTERS!"
-# game = Word_guess.new(gets.chomp.upcase)
-# p game.hide_words
+p "GAME START"
+p "Player 1! GIVE ME A WORD OR A PHRASE CONTAINING ONLY LETTERS!"
+game = Word_guess.new(gets.chomp.upcase)
+p game.hide_words
 
-# until game.guess_count == game.letter_count
-# 	p "You have #{game.letter_count-game.guess_count} guesses!"
-# 	p "Player 2! GUESS THE WORD/S OR LETTER!"
-# 	game.guess_attempt(gets.chomp.upcase)
-# end
+until game.guess_count == game.letter_count || game.solved == true
+	p "You have #{game.letter_count-game.guess_count} guesses!"
+	p "Player 2! GUESS THE WORD/S OR LETTER!"
+	game.guess_attempt(gets.chomp.upcase)
+end
 
-# game.game_end
+game.game_end
 
 
 
