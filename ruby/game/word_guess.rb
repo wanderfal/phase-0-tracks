@@ -118,13 +118,6 @@ end
 
 # game.game_end
 
-# case game.solved
-# 	when false
-# 		puts "Hah. You lose. Is that it?"
-# 	when true
-# 		puts "You did it! You win!"
-# end
-
 
 
 # One function that I could have included is when the phrase has 
