@@ -59,9 +59,10 @@ class Word_guess
 		letters.each_with_index do |letter, i|
 			if letter == guess
 				@placeholders[i] = letter
-			else
-				next 
 			end
+		end
+		unless placeholders.include?('_')
+			@solved = true
 		end
 		p placeholders.join(' ')
 	end
@@ -84,9 +85,6 @@ class Word_guess
 			p "Nope! Maybe try a single letter?"
 			p placeholders.join(' ')
 		end
-		unless placeholders.include?('_')
-			@solved = true
-		end
 	end
 
 	def game_end
@@ -103,20 +101,22 @@ end
 
 # DRIVER CODE
 
-p "GAME START"
-p "Player 1! GIVE ME A WORD OR A PHRASE CONTAINING ONLY LETTERS!"
-game = Word_guess.new(gets.chomp.upcase)
-p game.hide_words
 
-until game.guess_count == game.letter_count || game.solved == true
-	p "You have #{game.letter_count-game.guess_count} guesses!"
-	p "Player 2! GUESS THE WORD/S OR LETTER!"
-	game.guess_attempt(gets.chomp.upcase)
-end
+# p "GAME START"
+# p "Player 1! GIVE ME A WORD OR A PHRASE CONTAINING ONLY LETTERS!"
+# game = Word_guess.new(gets.chomp.upcase)
+# p game.hide_words
 
-game.game_end
+# until game.guess_count == game.letter_count || game.solved == true
+# 	p "You have #{game.letter_count-game.guess_count} guesses!"
+# 	p "Player 2! GUESS THE WORD/S OR LETTER!"
+# 	game.guess_attempt(gets.chomp.upcase)
+# end
+
+# game.game_end
 
 
+# DRIVER CODE END
 
 # One function that I could have included is when the phrase has 
 # multiple words.
