@@ -18,4 +18,9 @@ function reverse(str) {
 
 console.log(reverse("Hello"));
 
-console.log(reverse("Hello World"))
+var reversed = reverse("Hello World");
+//console.log(reversed);
+
+if (1 == 1) {
+	console.log(reversed);
+}
