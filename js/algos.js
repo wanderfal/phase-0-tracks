@@ -34,6 +34,8 @@ longest_phrase(array2)
 
 // Release 0 Driver code
 
+
+
 // Release 1
 // Find Key-Value Match
 // We choose one object and compare each key to all the keys
@@ -77,3 +79,46 @@ var objB = {fruit: "Banana", age: "45"}
 object_match(objA, objB)
 
 // Release 1 Driver Code
+
+
+// Release 2
+// Based on a randomly generated integer, the word's length
+// is determined. We then construct a string based on the
+// determined length and add that string to a array.
+// We then repeat until we have enough 'words' in the array.
+// Minimum length of 1 letter to Maximum length of 10 letters.
+
+
+function rand_data(int) {
+	var chars = "abcdefghijklmnopqrstuvwxyz"
+	var output = []
+	var length = 0
+	var letter = ""
+	for (var x = 0; x < int; x++) {
+		var word = "";
+		length = Math.floor(Math.random()*10 + 1);
+		for (var y = 0; y < length; y++) {
+			letter = chars[Math.floor(Math.random()*26)];
+			word += letter;
+		}
+		output.push(word);
+	}
+// Ran into problems with reading undefined returns
+// It was because I had originally put
+// return console.log(output);
+// It seems that I had mixed them up, and I would need
+// to explicity return the actual array, instead of the
+// printed array.
+	console.log(output);
+	return output;
+}
+
+// Release 2 Driver Code
+
+rand_data(4)
+
+// Release 2 Driver Code
+
+// 7.3 Driver Code
+
+longest_phrase(rand_data(10))
