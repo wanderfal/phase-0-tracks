@@ -80,7 +80,7 @@ boroughs = [
 #
 # 1000.times do |i|
 # 	cookie_choice(data, cookie_list.sample, rand(5..100), i+1)
-#   order_create(data, "DBC", 1234567890, i+1)
+#   order_create(data, "DBC", 1234567890, boroughs.sample)
 # end
 #
 # DATA GENERATION
