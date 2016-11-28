@@ -35,6 +35,18 @@ SQL
 data.execute(create_cookies)
 data.execute(create_orders)
 
+
+def cookie_choice(data, cookie, count, order_id)
+	data.execute("INSERT INTO cookies (type, count, order_id) VALUES (?, ?, ?)",
+	[cookie, count, order_id])
+end
+
+def order_create(data, name, phone_num, location)
+	data.execute("INSERT INTO orders (name, number, borough) VALUES (?, ?, ?)",
+	[name, phone_num, location])
+end
+
+
 cookie_list = [
 	"Shortbread",
 	"Chocolate Chip",
@@ -46,13 +58,30 @@ cookie_list = [
 	"Snickerdoodles"
 	]
 
+boroughs = [
+	"Queens",
+	"Brooklyn",
+	"Manhattan",
+	"Bronx",
+	"Staten Island"
+	]
 
-# COOKIES
-# SHORTBREAD
-# CHOCOLATE CHIP
-# THIN MINTS
-# LADY FINGERS
-# MACAROONS
-# OATMEAL RAISIN
-# PEANUT BUTTER
-# SNICKERDOODLES
+
+# TESTS
+#
+# 10.times do |i|
+# 	p cookie_list.sample
+# 	p rand(1..10)
+# end
+#
+# TESTS
+
+# DATA GENERATION
+#
+# 1000.times do |i|
+# 	cookie_choice(data, cookie_list.sample, rand(5..100), i+1)
+#   order_create(data, "DBC", 1234567890, i+1)
+# end
+#
+# DATA GENERATION
+
