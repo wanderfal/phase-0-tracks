@@ -1,0 +1,86 @@
+# Release 2
+
+1. 
+sqlite> SELECT * FROM skittles;
+
+1|Yellow|Lemon|true|20|3
+2|Orange|Orangey|true|18|3
+3|Purple|Grape|false|22|2
+4|Green|Lime|true|20|3
+5|Red|Strawberry|false|22|1
+
+2.
+sqlite> UPDATE skittles SET flavor="Green Apple" WHERE color="Green";
+
+sqlite> SELECT * FROM skittles;
+
+1|Yellow|Lemon|true|20|3
+2|Orange|Orangey|true|18|3
+3|Purple|Grape|false|22|2
+4|Green|Green Apple|true|20|3
+5|Red|Strawberry|false|22|1
+
+3.
+sqlite> SELECT * FROM jars, skittles WHERE jars.id = skittles.jar_id;
+
+3|Round|Great|1|Yellow|Lemon|true|20|3
+3|Round|Great|2|Orange|Orangey|true|18|3
+2|Cracked|Garbage|3|Purple|Grape|false|22|2
+3|Round|Great|4|Green|Green Apple|true|20|3
+1|Square|So-So|5|Red|Strawberry|false|22|1
+
+4.
+sqlite> SELECT color, flavor, count, shape, label FROM skittles, jars WHERE skittles.jar_id = jars.id;
+
+Yellow|Lemon|20|Round|Great
+Orange|Orangey|18|Round|Great
+Purple|Grape|22|Cracked|Garbage
+Green|Green Apple|20|Round|Great
+Red|Strawberry|22|Square|So-So
+
+5.
+sqlite> DELETE FROM skittles WHERE flavor="Orangey";
+
+sqlite> SELECT color, flavor, count, shape, label FROM skittles, jars WHERE skittles.jar_id = jars.id;
+
+Yellow|Lemon|20|Round|Great
+Purple|Grape|22|Cracked|Garbage
+Green|Green Apple|20|Round|Great
+Red|Strawberry|22|Square|So-So
+
+
+# Release 3
+# JOIN
+
+sqlite> SELECT skittles.color, skittles.flavor, jars.label FROM skittles JOIN jars ON skittles.jar_id = jars.id;
+
+Yellow|Lemon|Great
+Purple|Grape|Garbage
+Green|Green Apple|Great
+Red|Strawberry|So-So
+
+
+sqlite> SELECT skittles.color, jars.shape FROM skittles JOIN jars ON skittles.jar_id = jars.id;
+
+Yellow|Round
+Purple|Cracked
+Green|Round
+Red|Square
+
+
+sqlite> SELECT color, count, label FROM skittles LEFT OUTER JOIN jars ON skittles.jar_id = jars.id;
+
+Yellow|20|Great
+Purple|22|Garbage
+Green|20|Great
+Red|22|So-So
+
+# If I had some skittles unassigned to a jar, the skittles would be displayed
+# but just wouldn't have a jar value. Like if I had a white skittle but did not
+# put it into a jar I would see:
+#
+# Yellow|20|Great
+# Purple|22|Garbage
+# Green|20|Great
+# Red|22|So-So
+# White|18|
