@@ -23,6 +23,14 @@ get '/home2' do
 	erb :home2
 end
 
+get '/campus/new' do
+	erb :new_campus
+end
+
+get '/campuses' do
+	@campuses = db.execute("SELECT * FROM campuses")
+	erb :campuses
+end
 
 # create new students via
 # a form
@@ -31,4 +39,15 @@ post '/students' do
   redirect '/'
 end
 
+post '/campus' do
+	db.execute("INSERT INTO campuses (name, abbreviation) VALUES (?,?)", [params['name'], params['abbreviation']])
+  redirect '/campuses'
+end
+
+
+# When we use GET instead of POST, we need to modify
+# the action needs to be changed into a query route.
+
 # add static resources
+
+
