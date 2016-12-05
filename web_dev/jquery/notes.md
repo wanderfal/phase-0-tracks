@@ -12,3 +12,6 @@ Stop every 15 minutes to see if I remember what I have learned in the last 15 mi
 
 If I do not understand it, google examples and explore until comfortable.
 
+# Release 1
+I found that by going to CodeCademy and using their syllabus as a guide, I was able to research more effectively. I also started my googling by first searching for jQuery fundamentals, and from there I would check each resource. Once I found one that I liked, I stuck with it, and as I gained a greater understanding, I would search other terms if not already described in the resource.
+
